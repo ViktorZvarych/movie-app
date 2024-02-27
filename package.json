@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@smastrom/react-rating": "^1.5.0",
+    "@mui/icons-material": "^5.15.11",
+    "@emotion/styled": "^11.11.0",
+    "@emotion/react": "^11.11.3",
     "@hookform/resolvers": "^3.3.4",
     "@mui/material": "^5.15.10",
     "@mui/styled-engine-sc": "^6.0.0-alpha.17",

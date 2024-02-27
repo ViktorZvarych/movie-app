@@ -1,8 +1,10 @@
+import css from './UserInfo.module.css';
+
 const UserInfo = () => {
     console.log('render UserInfo');
 
     return (
-        <div>
+        <div className={css.userInfo}>
             <h2>UserInfo </h2>
         </div>
 )
