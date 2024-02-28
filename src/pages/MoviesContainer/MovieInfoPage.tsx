@@ -1,4 +1,4 @@
-import {MovieInfo} from "../components";
+import {MovieInfo} from "../../components";
 
 const MovieInfoPage = () => {
     console.log('render MovieInfoPage');

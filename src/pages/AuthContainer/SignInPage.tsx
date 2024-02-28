@@ -1,4 +1,4 @@
-import {SignInForm} from "../components";
+import {SignInForm} from "../../components";
 
 const SignInPage = () => {
     console.log('render SignInPage');

@@ -3,9 +3,16 @@ import {useEffect, useState} from "react";
 import {IGenre, IGenres} from "../../../interfaces";
 import {moviesService} from "../../../services";
 import {Genre} from "./Genre";
+import {useLocation} from "react-router-dom";
 
-const GenresList = () => {
+
+const GenresList  = () => {
     console.log('render GenresList');
+
+    const {state} = useLocation();
+    useEffect(() => {
+        console.log(state);
+    }, [state]);
 
     const [genres, setGenres] = useState<IGenres | null>(null);
 
@@ -19,10 +26,6 @@ const GenresList = () => {
             console.log(e);
         }
     }, [])
-
-    useEffect(() => {
-        console.log(genres);
-    }, [genres]);
 
     return (
         <div>

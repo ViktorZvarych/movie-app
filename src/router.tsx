@@ -2,12 +2,12 @@ import {createBrowserRouter, Navigate} from "react-router-dom";
 
 import {MainLayout, PublicLayout, PrivateLayout} from './layouts';
 import {ErrorPage, LoginPage, MovieInfoPage, MoviesPage, MoviesListPage, RegisterPage, SignInPage} from "./pages";
-import {AuthProvider} from './hocs';
-import {PosterPreview} from "./components";
+import {AuthProvider, MovieContextProvider} from './hocs';
+import {ThemeContextProvider} from "./hocs/ThemeContextProider";
 
 const router = createBrowserRouter([
     {
-        path: '', element: <MainLayout/>, errorElement: <ErrorPage/>, children: [
+        path: '', element: <ThemeContextProvider><MainLayout/></ThemeContextProvider>, errorElement: <ErrorPage/>, children: [
             {
                 index: true, element: <Navigate to={'login'}/>
             },
@@ -26,7 +26,7 @@ const router = createBrowserRouter([
                 ]
             },
             {
-                element: <AuthProvider><PrivateLayout/></AuthProvider>, children: [
+                element: <AuthProvider><MovieContextProvider><PrivateLayout/></MovieContextProvider></AuthProvider>, children: [
                     {
                         path: 'movies', element: <MoviesPage/>, children: [
                             {
@@ -34,6 +34,12 @@ const router = createBrowserRouter([
                             },
                             {
                                 path: 'list', element: <MoviesListPage/>
+                            },
+                            {
+                                path: 'sorted', element: <MoviesListPage/>
+                            },
+                            {
+                                path: 'search-results', element: <MoviesListPage/>
                             },
                             {
                                 path: 'info/:id', element: <MovieInfoPage/>

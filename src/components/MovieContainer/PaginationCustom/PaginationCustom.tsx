@@ -2,7 +2,6 @@ import {Dispatch, FC, SetStateAction} from "react";
 import Pagination from '@mui/material/Pagination';
 
 import css from './PaginationCustom.module.css';
-import {IMovies} from "../../../interfaces";
 
 interface IProps {
     page: string;

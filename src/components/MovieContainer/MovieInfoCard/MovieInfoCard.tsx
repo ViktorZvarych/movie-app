@@ -26,24 +26,20 @@ const MovieInfoCard: FC<IProps> = ({movie}) => {
         popularity
     } = movie;
 
-
     return (
         <div className={css.card}>
             <StarsRating stars={vote_average}/>
 
             <Badge badgeContent={genres.map(({name}) => name + '  ')} color="primary">
-
                 <h3 className={css.cardTitle}>{title}</h3>
             </Badge>
 
             <p>Votes: {vote_count}</p>
-                <p>Release date: {release_date.toString()}</p>
-                <p>video: {video.toString()}</p>
-                <p>Budget: $ {budget}</p>
-                <p>Popularity: {popularity}</p>
-
-                <p>{overview}</p>
-
+            <p>Release date: {release_date.toString()}</p>
+            <p>video: {video.toString()}</p>
+            <p>Budget: $ {budget}</p>
+            <p>Popularity: {popularity}</p>
+            <p>{overview}</p>
 
             <PosterPreview imgUrl={poster_path} title={title}/>
         </div>
