@@ -6,14 +6,12 @@ import {Genre} from "./Genre";
 import {useLocation, useSearchParams} from "react-router-dom";
 
 
-import { Theme, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import Chip from '@mui/material/Chip';
 
 const MenuProps = {
     PaperProps: {
@@ -30,11 +28,10 @@ const GenresList  = () => {
 
     const handleChange = (event: SelectChangeEvent<typeof genresArr>) => {
         const {
-            target: { value, name },
+            target: { value },
         } = event;
 
         setGenresArr(
-            // On autofill we get a stringified value.
             typeof value === 'string' ? value.split(',') : value,
         );
     };

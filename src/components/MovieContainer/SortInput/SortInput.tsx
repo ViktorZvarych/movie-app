@@ -1,22 +1,20 @@
-import * as React from 'react';
+import {useEffect, useState} from "react";
+import {useSearchParams} from "react-router-dom";
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, {SelectChangeEvent} from '@mui/material/Select';
-import {useSearchParams} from "react-router-dom";
-import {useEffect} from "react";
 
 
 const SortInput = () => {
     console.log('render SearchInput');
 
-    const [sortBy, setSortBy] = React.useState('');
+    const [sortBy, setSortBy] = useState('');
 
     const [urlParams, setUrlParams] = useSearchParams();
 
     useEffect(() => {
-
            if (sortBy) {
                 setUrlParams(`sort_by=${sortBy}`);
             } else {

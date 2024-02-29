@@ -23,6 +23,7 @@ const MainLayout = () => {
     return (
         <div>
             <Header/>
+
             <h2>MainLayout</h2>
             <Outlet/>
         </div>

@@ -13,4 +13,5 @@ export * from './MovieContainer/MoviesSortForm/MoviesSortForm';
 export * from './MovieContainer/PaginationCustom/PaginationCustom';
 export * from './MovieContainer/PosterPreview/PosterPreview';
 export * from './MovieContainer/StarsRating/StarsRating';
+export * from './SearchInput/SearchInput';
 export * from './UserInfo/UserInfo';
