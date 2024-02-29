@@ -1,9 +1,18 @@
 import {createBrowserRouter, Navigate} from "react-router-dom";
 
 import {MainLayout, PublicLayout, PrivateLayout} from './layouts';
-import {ErrorPage, LoginPage, MovieInfoPage, MoviesPage, MoviesListPage, RegisterPage, SignInPage} from "./pages";
+import {
+    ErrorPage,
+    LoginPage,
+    MovieInfoPage,
+    MoviesPage,
+    MoviesListPage,
+    RegisterPage,
+    SignInPage,
+    SearchResultsPage
+} from "./pages";
 import {AuthProvider, MovieContextProvider} from './hocs';
-import {ThemeContextProvider} from "./hocs/ThemeContextProider";
+import {ThemeContextProvider} from "./hocs";
 
 const router = createBrowserRouter([
     {
@@ -36,10 +45,7 @@ const router = createBrowserRouter([
                                 path: 'list', element: <MoviesListPage/>
                             },
                             {
-                                path: 'sorted', element: <MoviesListPage/>
-                            },
-                            {
-                                path: 'search-results', element: <MoviesListPage/>
+                                path: 'search-results', element: <SearchResultsPage/>
                             },
                             {
                                 path: 'info/:id', element: <MovieInfoPage/>

@@ -1,18 +1,28 @@
-import {Dispatch, FC, SetStateAction} from "react";
+import {Dispatch, FC, SetStateAction, useEffect, useState} from "react";
 import Pagination from '@mui/material/Pagination';
 
 import css from './PaginationCustom.module.css';
+import {useSearchParams} from "react-router-dom";
 
-interface IProps {
-    page: string;
-    setPage: Dispatch<SetStateAction<string>>
-}
 
-const PaginationCustom: FC<IProps> = ({setPage}) => {
-    console.log('render PaginationCustom');
+const PaginationCustom = () => {
+    console.log('render SearchInput');
+
+    const [currentPage, setCurrentPage] = useState<string>('');
+
+    const [urlParams, setUrlParams] = useSearchParams();
+
+    useEffect(() => {
+        if (currentPage) {
+            setUrlParams(prev => {
+                prev.set('page', currentPage.toString());
+                return prev
+            })
+        }
+    }, [currentPage]);
 
     const handleChange = (e: any) => {
-        setPage(e.target.innerText);
+        setCurrentPage(e.target.innerText);
     }
 
     return (

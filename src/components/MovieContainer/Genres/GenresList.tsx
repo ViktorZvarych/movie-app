@@ -3,10 +3,57 @@ import {useEffect, useState} from "react";
 import {IGenre, IGenres} from "../../../interfaces";
 import {moviesService} from "../../../services";
 import {Genre} from "./Genre";
-import {useLocation} from "react-router-dom";
+import {useLocation, useSearchParams} from "react-router-dom";
 
+
+import { Theme, useTheme } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Chip from '@mui/material/Chip';
+
+const MenuProps = {
+    PaperProps: {
+        style: {
+            maxHeight: 50 * 4.5 + 8,
+            width: 250,
+        },
+    },
+};
 
 const GenresList  = () => {
+
+    const [genresArr, setGenresArr] = useState<string[]>([]);
+
+    const handleChange = (event: SelectChangeEvent<typeof genresArr>) => {
+        const {
+            target: { value, name },
+        } = event;
+
+        setGenresArr(
+            // On autofill we get a stringified value.
+            typeof value === 'string' ? value.split(',') : value,
+        );
+    };
+
+    const [urlParams, setUrlParams] = useSearchParams();
+
+    useEffect(() => {
+        setUrlParams(prev => {
+            if (genresArr[0]) {
+                prev.set('with_genres', genresArr.join(','));
+            } else {
+                prev.delete('with_genres');
+            }
+            return prev;
+        });
+    }, [genresArr])
+
+
+
     console.log('render GenresList');
 
     const {state} = useLocation();
@@ -28,14 +75,37 @@ const GenresList  = () => {
     }, [])
 
     return (
-        <div>
-            <h2>Genres</h2>
-            {
-                genres
-                &&
-                genres.genres.map((genre: IGenre) => <Genre key={genre.id} genre={genre}/>)
-            }
-        </div>
+            <div>
+                <FormControl sx={{m: 1, width: 300}}>
+                    <InputLabel id="demo-multiple-chip-label">Genres</InputLabel>
+                    <Select
+                        labelId="demo-multiple-chip-label"
+                        id="demo-multiple-chip"
+                        multiple
+                        value={genresArr}
+                        onChange={handleChange}
+                        input={<OutlinedInput id="select-multiple-chip" label="Chip"/>}
+                        renderValue={(selected) => (
+                            <Box sx={{display: 'flex', flexWrap: 'wrap', gap: 0.5}}>
+                                {/*{selected.map((value) => (*/}
+                                {/*    <Chip key={value} />*/}
+                                {/*))}*/}
+                            </Box>
+                        )}
+                        MenuProps={MenuProps}
+                    >
+                        {genres && genres.genres.map((genre: IGenre) => (
+                            <MenuItem
+                                key={genre.id}
+                                value={genre.id}
+                                title={genre.name}
+                            >
+                                <Genre key={genre.id} genre={genre}/>
+                            </MenuItem>
+                        ))}
+                    </Select>
+                </FormControl>
+            </div>
     );
 };
 

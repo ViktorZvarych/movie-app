@@ -1,8 +1,8 @@
 import {FC} from "react";
+import {useNavigate} from "react-router-dom";
 
 import css from './MoviesListCard.module.css';
 import {IMovie} from "../../../interfaces";
-import {useNavigate} from "react-router-dom";
 import {StarsRating} from "../StarsRating/StarsRating";
 import {urls} from "../../../constants";
 
@@ -20,7 +20,7 @@ const MoviesListCard: FC<IProps> = ({movie}) => {
     }
 
     return (
-        <div className={css.moviesList}>
+        <div className={css.moviesListCard}>
             <h3>{title}</h3>
             <img src={urls.movies.backdrop(backdrop_path)} alt={title}/>
             <StarsRating stars={vote_average}/>

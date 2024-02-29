@@ -7,6 +7,8 @@ const urls = {
         allMovies: `/discover${movie}`,
         genres: `/genre${movie}/list`,
 
+        search: `search${movie}`,
+
         movieDetailsById: (id: number) => `${movie}/${id}`,
         backdrop: (imgUrl: string) => `https://image.tmdb.org/t/p/w300/${imgUrl}`,
         poster: (imgUrl: string) => `https://image.tmdb.org/t/p/w500/${imgUrl}`,

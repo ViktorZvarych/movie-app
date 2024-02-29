@@ -1,3 +1,3 @@
 export * from './AuthProvider';
-export * from './MovieContextProider';
+export * from './MovieContextProvider';
 export * from './ThemeContextProider';

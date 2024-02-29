@@ -4,8 +4,10 @@ import {IGenres, IMovieDetails, IMovies} from "../interfaces";
 import {IRes} from "../types/axiosResponseType";
 
 const moviesService = {
-    getMovies: (params: string): IRes<IMovies> => apiService.get(urls.movies.allMovies, {params: {params}}),
+    getMovies: (params: string): IRes<IMovies> => apiService.get(urls.movies.allMovies + `?${params}`),
     getGenres: (): IRes<IGenres> => apiService.get(urls.movies.genres),
+
+    searchMovie: (searchQuery: string, params: string) => apiService.get(urls.movies.search + `?${searchQuery}&${params}`),
 
     getMovieDetailsById: (id: number): IRes<IMovieDetails> => apiService.get(urls.movies.movieDetailsById(id)),
     getVideos: (id: number): IRes<[]> => apiService.get(urls.movies.videos(id)),

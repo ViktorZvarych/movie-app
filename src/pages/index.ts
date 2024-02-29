@@ -7,4 +7,3 @@ export * from './MoviesContainer/MovieInfoPage';
 export * from './MoviesContainer/MoviesPage';
 export * from './MoviesContainer/MoviesListPage';
 export * from './MoviesContainer/SearchResultsPage';
-export * from './MoviesContainer/SortedMoviesPage';
