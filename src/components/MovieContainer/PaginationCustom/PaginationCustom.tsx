@@ -1,4 +1,4 @@
-import {Dispatch, FC, SetStateAction, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import Pagination from '@mui/material/Pagination';
 
 import css from './PaginationCustom.module.css';
@@ -6,11 +6,11 @@ import {useSearchParams} from "react-router-dom";
 
 
 const PaginationCustom = () => {
-    console.log('render SearchInput');
+    console.log('render PaginationCustom');
 
     const [currentPage, setCurrentPage] = useState<string>('');
 
-    const [urlParams, setUrlParams] = useSearchParams();
+    const [, setUrlParams] = useSearchParams();
 
     useEffect(() => {
         if (currentPage) {
@@ -19,7 +19,7 @@ const PaginationCustom = () => {
                 return prev
             })
         }
-    }, [currentPage]);
+    }, [currentPage, setUrlParams]);
 
     const handleChange = (e: any) => {
         setCurrentPage(e.target.innerText);

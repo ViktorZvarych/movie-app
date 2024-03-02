@@ -20,11 +20,10 @@ const MoviesListCard: FC<IProps> = ({movie}) => {
     }
 
     return (
-        <div className={css.moviesListCard}>
+        <div onClick={onClickHandler} className={css.moviesListCard}>
             <h3>{title}</h3>
             <img src={urls.movies.backdrop(backdrop_path)} alt={title}/>
             <StarsRating stars={vote_average}/>
-            <button onClick={onClickHandler}>Movie details</button>
         </div>
     );
 };

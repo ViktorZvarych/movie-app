@@ -1,12 +1,12 @@
-import {SignInForm} from "../../components";
-
 const SignInPage = () => {
     console.log('render SignInPage');
+
+
 
     return (
         <div>
             <h2>SignInPage</h2>
-            <SignInForm/>
+            <p>This page is under construction</p>
         </div>
     );
 };

@@ -1,0 +1,13 @@
+.dark {
+    background: darkslategray;
+    color: snow;
+    min-height: 100vh;
+
+    input {
+        background: snow;
+    }
+}
+
+.light {
+    min-height: 100vh;
+}

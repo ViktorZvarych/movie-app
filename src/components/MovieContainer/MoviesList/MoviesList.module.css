@@ -1,3 +1,14 @@
 .moviesList {
+    ul {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+
+        li {
+            max-width: 300px;
+        }
+    }
 
 }

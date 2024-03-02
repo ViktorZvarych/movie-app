@@ -3,12 +3,12 @@ import {FC, useState} from "react";
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 
 import {urls} from "../../../constants";
+import css from './PosterPreview.module.css'
 
 interface IProps {
     imgUrl: string;
@@ -37,7 +37,7 @@ const PosterPreview: FC<IProps> = ({imgUrl, title}) => {
     };
 
     return (
-        <div>
+        <div className={css.posterPreview}>
             <Button variant="outlined" onClick={handleClickOpen}>
                 Poster
             </Button>
@@ -47,23 +47,20 @@ const PosterPreview: FC<IProps> = ({imgUrl, title}) => {
                 aria-labelledby="customized-dialog-title"
                 open={open}
             >
-                <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
-                    {title}
-                </DialogTitle>
-                <IconButton
-                    aria-label="close"
-                    onClick={handleClose}
-                    sx={{
-                        position: 'absolute',
-                        right: 8,
-                        top: 8,
-                        color: (theme) => theme.palette.grey[500],
-                    }}
-                >
-                    <CloseIcon />
-                </IconButton>
                 <DialogContent dividers>
-                    <img width="70%" src={urls.movies.poster(imgUrl)} alt="poster"/>
+                    <img width="80%" src={urls.movies.poster(imgUrl)} alt="poster"/>
+                    <IconButton
+                        aria-label="close"
+                        onClick={handleClose}
+                        sx={{
+                            position: 'absolute',
+                            right: 8,
+                            top: 8,
+                            color: (theme) => theme.palette.grey[500],
+                        }}
+                    >
+                        <CloseIcon />
+                    </IconButton>
                 </DialogContent>
             </BootstrapDialog>
 

@@ -8,22 +8,12 @@ import Select, {SelectChangeEvent} from '@mui/material/Select';
 
 
 const SortInput = () => {
-    console.log('render SearchInput');
-
-    const [sortBy, setSortBy] = useState('');
+    console.log('render SortInput');
 
     const [urlParams, setUrlParams] = useSearchParams();
 
-    useEffect(() => {
-           if (sortBy) {
-                setUrlParams(`sort_by=${sortBy}`);
-            } else {
-               setUrlParams([]);
-            }
-    }, [sortBy])
-
     const handleChange = (event: SelectChangeEvent) => {
-        setSortBy(event.target.value as string);
+        setUrlParams(`sort_by=${event.target.value}`);
     };
 
 
@@ -34,7 +24,7 @@ const SortInput = () => {
                 <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
-                    value={sortBy}
+                    value={'popularity.desc'}
                     label="Sort"
                     onChange={handleChange}
                 >

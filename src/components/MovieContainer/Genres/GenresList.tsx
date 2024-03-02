@@ -36,7 +36,7 @@ const GenresList  = () => {
         );
     };
 
-    const [urlParams, setUrlParams] = useSearchParams();
+    const [, setUrlParams] = useSearchParams();
 
     useEffect(() => {
         setUrlParams(prev => {
@@ -47,7 +47,7 @@ const GenresList  = () => {
             }
             return prev;
         });
-    }, [genresArr])
+    }, [setUrlParams, genresArr])
 
 
 

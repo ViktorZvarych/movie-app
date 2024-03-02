@@ -1,6 +1,7 @@
 export * from './AuthForms/LoginForm/LoginForm';
 export * from './AuthForms/RegisterForm/RegisterForm';
 export * from './AuthForms/SignInForm/SigninForm';
+export * from './ButtonsContainer/BackToTopButton/BackToTopButton';
 export * from './MovieContainer/Genres/GenresList';
 export * from './MovieContainer/Genres/Genre';
 export * from './Header/Header';

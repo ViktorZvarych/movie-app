@@ -13,10 +13,14 @@ import {
 } from "./pages";
 import {AuthProvider, MovieContextProvider} from './hocs';
 import {ThemeContextProvider} from "./hocs";
+import {LoginForm} from "./components";
 
 const router = createBrowserRouter([
     {
-        path: '', element: <ThemeContextProvider><MainLayout/></ThemeContextProvider>, errorElement: <ErrorPage/>, children: [
+        path: '',
+        element: <ThemeContextProvider><MainLayout/></ThemeContextProvider>,
+        errorElement: <ErrorPage/>,
+        children: [
             {
                 index: true, element: <Navigate to={'login'}/>
             },
@@ -24,6 +28,9 @@ const router = createBrowserRouter([
                 element: <PublicLayout/>, children: [
                     {
                         path: 'login', element: <LoginPage/>, children: [
+                            {
+                                index: true, element: <LoginForm/>
+                            },
                             {
                                 path: 'register', element: <RegisterPage/>
                             },
@@ -35,7 +42,15 @@ const router = createBrowserRouter([
                 ]
             },
             {
-                element: <AuthProvider><MovieContextProvider><PrivateLayout/></MovieContextProvider></AuthProvider>, children: [
+                element:
+                    <ThemeContextProvider>
+                        <AuthProvider>
+                            <MovieContextProvider>
+                                <PrivateLayout/>
+                            </MovieContextProvider>
+                        </AuthProvider>
+                    </ThemeContextProvider>,
+                children: [
                     {
                         path: 'movies', element: <MoviesPage/>, children: [
                             {
