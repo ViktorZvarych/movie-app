@@ -10,7 +10,7 @@ const urls = {
         search: `search${movie}`,
 
         movieDetailsById: (id: number) => `${movie}/${id}`,
-        backdrop: (imgUrl: string) => `https://image.tmdb.org/t/p/w300/${imgUrl}`,
+        backdrop: (imgUrl: string, width: number) => `https://image.tmdb.org/t/p/w${width}${imgUrl}`,
         poster: (imgUrl: string) => `https://image.tmdb.org/t/p/w500/${imgUrl}`,
         videos: (id: number) => `${movie}/${id}/videos`,
         reviews: (id: number) => `${movie}/${id}/reviews`,

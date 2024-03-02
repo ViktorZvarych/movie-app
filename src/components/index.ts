@@ -16,5 +16,6 @@ export * from './MovieContainer/MoviesListCard/MoviesListCard';
 export * from './MovieContainer/PaginationCustom/PaginationCustom';
 export * from './MovieContainer/PosterPreview/PosterPreview';
 export * from './MovieContainer/StarsRating/StarsRating';
+export * from './MovieContainer/Video/Video';
 export * from './SearchInput/SearchInput';
 export * from './UserInfo/UserInfo';

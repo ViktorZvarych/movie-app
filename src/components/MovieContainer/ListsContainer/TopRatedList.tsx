@@ -34,9 +34,9 @@ const TopRatedList = () => {
                 &&
                 <div>
                     <ul>
-                        {movies.results.map((movie: IMovie) =>
+                        {movies.results.slice(0, 8).map((movie: IMovie) =>
                             <li onClick={() => {
-                                navigate(`info/${movie.id}`);
+                                navigate(`../info/${movie.id}`);
                                 scrollTopHandler()
                             }}
                                 key={movie.id}>

@@ -1,4 +1,11 @@
 .moviesListCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 330px;
+    box-shadow: 1px 3px 7px #dfdfdf;
+
     :hover{
         cursor: pointer;
     }
