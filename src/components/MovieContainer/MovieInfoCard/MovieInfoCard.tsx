@@ -32,7 +32,10 @@ const MovieInfoCard: FC<IProps> = ({movie}) => {
         <article className={css.article}>
             <div className={css.card}>
                 <div className={css.titleContainer}>
-                    <Badge badgeContent={genres.map(({name}) => name + '  ')} color="error" sx={{ "& .MuiBadge-badge": { fontSize: 12, height: 25, minHeight: 15 } }}>
+                    <Badge
+                        badgeContent={genres.map(({name}) => name + '  ')}
+                        color="error"
+                        sx={{"& .MuiBadge-badge": {fontSize: 12, height: 36, minHeight: 15}}}>
                         <h3 className={css.cardTitle}>{title}</h3>
                     </Badge>
                 </div>

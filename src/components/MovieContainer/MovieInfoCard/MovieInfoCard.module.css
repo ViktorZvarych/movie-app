@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
-    border: 1px solid gray;
+    /*border: 1px solid gray;*/
 }
 
 .titleContainer {
@@ -20,7 +20,7 @@
 }
 
 .cardTitle {
-    width: 150px;
+    min-width: 150px;
     text-align: center;
 }
 

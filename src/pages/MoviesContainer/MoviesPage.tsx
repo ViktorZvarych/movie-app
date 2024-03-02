@@ -6,7 +6,7 @@ const MoviesPage = () => {
 
     return (
         <div>
-            <h2>MoviesPage</h2>
+            {/*<h2>MoviesPage</h2>*/}
 
             <Outlet/>
 

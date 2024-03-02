@@ -15,7 +15,7 @@ const MoviesListCard: FC<IProps> = ({movie}) => {
 
     return (
         <div className={css.moviesListCard}>
-            <h3>{title.slice(0, 28) + '...'}</h3>
+            <h3>{title[28] ? title.slice(0, 28) + '...' : title}</h3>
             <img src={urls.movies.backdrop(backdrop_path)} alt={title}/>
             <StarsRating stars={vote_average}/>
         </div>

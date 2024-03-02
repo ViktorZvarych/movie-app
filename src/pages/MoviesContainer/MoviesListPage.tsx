@@ -34,7 +34,7 @@ const MoviesListPage = () => {
 
     return (
         <div>
-            <h2>MoviesListPage</h2>
+            {/*<h2>MoviesListPage</h2>*/}
 
             {movies &&
                 <div>

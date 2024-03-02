@@ -28,7 +28,7 @@ const MovieInfo = () => {
 
     return (
         <div>
-            <h2>MovieInfo</h2>
+            {/*<h2>MovieInfo</h2>*/}
             {
                 movie
                 &&

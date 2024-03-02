@@ -5,7 +5,7 @@ const MovieInfoPage = () => {
 
     return (
         <div>
-            <h2>MovieInfoPage</h2>
+            {/*<h2>MovieInfoPage</h2>*/}
             <MovieInfo/>
         </div>
     );
