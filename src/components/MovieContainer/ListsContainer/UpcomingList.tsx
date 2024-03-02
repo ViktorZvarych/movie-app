@@ -28,7 +28,7 @@ const UpcomingList = () => {
 
     return (
         <section className={css.moviesList}>
-            <h2>UpcomingList</h2>
+            <h2>Upcoming movies</h2>
             {
                 movies && typeof movies !== 'undefined'
                 &&

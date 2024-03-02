@@ -1,4 +1,3 @@
-import {useEffect, useState} from "react";
 import {useSearchParams} from "react-router-dom";
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
@@ -10,7 +9,7 @@ import Select, {SelectChangeEvent} from '@mui/material/Select';
 const SortInput = () => {
     console.log('render SortInput');
 
-    const [urlParams, setUrlParams] = useSearchParams();
+    const [, setUrlParams] = useSearchParams();
 
     const handleChange = (event: SelectChangeEvent) => {
         setUrlParams(`sort_by=${event.target.value}`);

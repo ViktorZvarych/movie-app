@@ -42,7 +42,7 @@ const MovieInfoCard: FC<IProps> = ({movie}) => {
 
                 <img src={urls.movies.backdrop(backdrop_path)} alt={title}/>
 
-                <PosterPreview imgUrl={poster_path} title={title}/>
+                <PosterPreview imgUrl={poster_path}/>
 
                 <StarsRating stars={vote_average}/>
 

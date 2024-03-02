@@ -118,7 +118,7 @@ const Header = () => {
                                 </NavLink>
                             </Typography>
 
-                            <SearchInput/>
+                            {auth && <SearchInput/>}
 
                             <Box>
                                 <Button sx={{color: 'snow'}}>

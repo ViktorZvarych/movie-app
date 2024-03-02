@@ -16,7 +16,7 @@ const Footer = () => {
 
     useEffect(() => {
         console.log(auth)
-    }, []);
+    }, [auth]);
 
     return (
         <footer className={css.footer}>

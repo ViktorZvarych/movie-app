@@ -29,7 +29,7 @@ const PopularList = () => {
 
     return (
         <section className={css.moviesList}>
-            <h2>PopularList</h2>
+            <h2>Popular movies</h2>
             {
                 movies && typeof movies !== 'undefined'
                 &&

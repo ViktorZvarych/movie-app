@@ -11,8 +11,7 @@ import {urls} from "../../../constants";
 import css from './PosterPreview.module.css'
 
 interface IProps {
-    imgUrl: string;
-    title: string
+    imgUrl: string
 }
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -24,7 +23,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     },
 }));
 
-const PosterPreview: FC<IProps> = ({imgUrl, title}) => {
+const PosterPreview: FC<IProps> = ({imgUrl}) => {
     console.log('render PosterPreview');
 
     const [open, setOpen] = useState<boolean>(false);

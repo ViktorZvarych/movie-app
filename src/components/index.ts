@@ -13,7 +13,6 @@ export * from './MovieContainer/MovieInfo/MovieInfo';
 export * from './MovieContainer/MovieInfoCard/MovieInfoCard';
 export * from './MovieContainer/MoviesList/MoviesList';
 export * from './MovieContainer/MoviesListCard/MoviesListCard';
-export * from './MovieContainer/MoviesSortForm/MoviesSortForm';
 export * from './MovieContainer/PaginationCustom/PaginationCustom';
 export * from './MovieContainer/PosterPreview/PosterPreview';
 export * from './MovieContainer/StarsRating/StarsRating';

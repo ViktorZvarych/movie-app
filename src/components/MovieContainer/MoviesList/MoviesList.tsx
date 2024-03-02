@@ -22,7 +22,6 @@ const MoviesList: FC<IProps> = ({movies}) => {
                 movies && typeof movies !== 'undefined'
                 &&
                 <div>
-                    <PaginationCustom/>
                     <ul>
                         {movies.results.map((movie: IMovie) =>
                             <li onClick={() => navigate(`../info/${movie.id}`)}

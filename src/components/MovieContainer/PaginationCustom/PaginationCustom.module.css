@@ -1,5 +1,7 @@
 .pagination {
     display: flex;
     justify-content: center;
-background: white;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background: white;
 }
