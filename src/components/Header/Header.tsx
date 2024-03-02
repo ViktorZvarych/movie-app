@@ -30,13 +30,15 @@ import {SearchInput} from "../SearchInput/SearchInput";
 import {authService} from "../../services";
 import {token} from "../../constants";
 import {useThemeContext} from "../../hooks";
+import {GenresList} from "../MovieContainer/Genres/GenresList";
+import {SortInput} from "../MovieContainer/SortInput/SortInput";
 
 
 const drawerWidth = 240;
 
 
 const Header = () => {
-    console.log('render Header');
+    console.log('render Footer');
 
     const localToken = authService.getToken();
 
@@ -76,26 +78,9 @@ const Header = () => {
         setMobileOpen((prevState: boolean) => !prevState);
     };
 
-    const drawer = (
-        <Box onClick={handleDrawerToggle} sx={{textAlign: 'center'}}>
-            <Typography variant="h6" sx={{my: 2}}>
-                MovieDB
-            </Typography>
-            <Divider/>
-            <List>
-                <ListItem disablePadding>
-                    <ListItemButton sx={{textAlign: 'center'}}>
-                        About
-                    </ListItemButton>
-                </ListItem>
-            </List>
-        </Box>
-    );
-
     const trigger = useScrollTrigger({
         target: undefined,
     });
-
 
     const themeContext = useThemeContext();
 
@@ -207,10 +192,10 @@ const Header = () => {
                             )}
 
                             <Box>
-                                <IconButton sx={{ ml: 1 }} onClick={changeTheme} color="inherit">
+                                <IconButton sx={{ml: 1}} onClick={changeTheme} color="inherit">
                                     {theme === 'dark'
-                                        ? <Brightness7Icon />
-                                        : <Brightness4Icon />}
+                                        ? <Brightness7Icon/>
+                                        : <Brightness4Icon/>}
                                 </IconButton>
                             </Box>
 
@@ -224,13 +209,33 @@ const Header = () => {
                         open={mobileOpen}
                         onClose={handleDrawerToggle}
                         ModalProps={{
-                            keepMounted: true, // Better open performance on mobile.
+                            keepMounted: true,
                         }}
                         sx={{
                             '& .MuiDrawer-paper': {boxSizing: 'border-box', width: drawerWidth},
                         }}
                     >
-                        {drawer}
+                        <Box onClick={handleDrawerToggle} sx={{textAlign: 'center'}}>
+                            <Typography variant="h6" sx={{my: 2}}>
+                                MovieDB
+                            </Typography>
+                            <Divider/>
+                            <List>
+                                <ListItem disablePadding>
+                                    <ListItemButton sx={{textAlign: 'center', display: 'block'}}>
+                                        <GenresList/>
+                                    </ListItemButton>
+                                </ListItem>
+
+                                <Divider/>
+
+                                <ListItem disablePadding>
+                                    <ListItemButton sx={{textAlign: 'center', display: 'block'}}>
+                                        <SortInput/>
+                                    </ListItemButton>
+                                </ListItem>
+                            </List>
+                        </Box>
                     </Drawer>
                 </nav>
 

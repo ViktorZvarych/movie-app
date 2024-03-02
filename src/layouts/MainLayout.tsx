@@ -1,6 +1,6 @@
 import {Outlet} from "react-router-dom";
 
-import {BackToTopButton, Header} from "../components";
+import {BackToTopButton, Header, Footer} from "../components";
 import css from './MainLayout.module.css'
 import {useThemeContext} from "../hooks";
 
@@ -18,6 +18,8 @@ const MainLayout = () => {
             <Header/>
 
             <Outlet/>
+
+            <Footer/>
 
             <BackToTopButton/>
         </div>

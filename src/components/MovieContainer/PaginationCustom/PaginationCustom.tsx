@@ -27,7 +27,14 @@ const PaginationCustom = () => {
 
     return (
         <div className={css.pagination}>
-            <Pagination count={500} variant="outlined" shape="rounded" onChange={handleChange}/>
+            <Pagination
+                count={500}
+                color="primary"
+                variant="outlined"
+                shape="rounded"
+                onChange={handleChange}
+                sx={{color: '#fff'}}
+            />
         </div>
     );
 };

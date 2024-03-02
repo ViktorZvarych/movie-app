@@ -1,10 +1,9 @@
 import {useEffect, useState} from "react";
 
-import {GenresList, MoviesList, PaginationCustom} from "../../components";
+import {MoviesList, PaginationCustom} from "../../components";
 import {IMovies} from "../../interfaces";
 import {moviesService} from "../../services";
 import {useSearchParams} from "react-router-dom";
-import {SortInput} from "../../components/MovieContainer/SortInput/SortInput";
 
 const MoviesListPage = () => {
     console.log('render MoviesListPage');
@@ -37,13 +36,13 @@ const MoviesListPage = () => {
         <div>
             <h2>MoviesListPage</h2>
 
-            <GenresList/>
-
-            <SortInput/>
-
-            {movies && <MoviesList movies={movies}/>}
-
-            <PaginationCustom/>
+            {movies &&
+                <div>
+                    <PaginationCustom/>
+                    <MoviesList movies={movies}/>
+                    <PaginationCustom/>
+                </div>
+            }
         </div>
     );
 };
