@@ -11,7 +11,6 @@ const Video: FC<IProps> = ({video}) => {
 
     const {
         key,
-        type,
         published_at,
         site
     } = video
