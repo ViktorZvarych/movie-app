@@ -38,7 +38,7 @@ const PosterPreview: FC<IProps> = ({imgUrl, title}) => {
 
     return (
         <div className={css.posterPreview}>
-            <Button variant="outlined" onClick={handleClickOpen}>
+            <Button variant="outlined" color='error' onClick={handleClickOpen}>
                 Poster
             </Button>
 

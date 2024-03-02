@@ -1,5 +1,4 @@
 import {FC} from "react";
-import {useNavigate} from "react-router-dom";
 
 import css from './MoviesListCard.module.css';
 import {IMovie} from "../../../interfaces";
@@ -12,16 +11,11 @@ interface IProps {
 
 const MoviesListCard: FC<IProps> = ({movie}) => {
     console.log('render MoviesListCard');
-    const {id, title, vote_average, backdrop_path, } = movie;
-
-    const navigate = useNavigate();
-    const onClickHandler = () => {
-        navigate(`../info/${id}`)
-    }
+    const {title, vote_average, backdrop_path } = movie;
 
     return (
-        <div onClick={onClickHandler} className={css.moviesListCard}>
-            <h3>{title}</h3>
+        <div className={css.moviesListCard}>
+            <h3>{title.slice(0, 28) + '...'}</h3>
             <img src={urls.movies.backdrop(backdrop_path)} alt={title}/>
             <StarsRating stars={vote_average}/>
         </div>

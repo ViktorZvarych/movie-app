@@ -4,6 +4,7 @@ import css from './MoviesList.module.css';
 import {IMovie, IMovies} from "../../../interfaces";
 import {MoviesListCard} from "../MoviesListCard/MoviesListCard";
 import {PaginationCustom} from "../PaginationCustom/PaginationCustom";
+import {useNavigate} from "react-router-dom";
 
 interface IProps {
     movies: IMovies
@@ -11,6 +12,8 @@ interface IProps {
 
 const MoviesList: FC<IProps> = ({movies}) => {
     console.log('render MoviesList');
+
+    const navigate = useNavigate();
 
     return (
         <section className={css.moviesList}>
@@ -21,7 +24,11 @@ const MoviesList: FC<IProps> = ({movies}) => {
                 <div>
                     <PaginationCustom/>
                     <ul>
-                        {movies.results.map((movie: IMovie) => <li key={movie.id}><MoviesListCard movie={movie}/></li>)}
+                        {movies.results.map((movie: IMovie) =>
+                            <li onClick={() => navigate(`../info/${movie.id}`)}
+                                key={movie.id}>
+                                <MoviesListCard movie={movie}/>
+                            </li>)}
                     </ul>
                     <PaginationCustom/>
                 </div>

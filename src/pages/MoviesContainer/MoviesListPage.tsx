@@ -41,6 +41,7 @@ const MoviesListPage = () => {
                     <MoviesList movies={movies}/>
                 </div>
             }
+
         </div>
     );
 };
