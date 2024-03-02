@@ -6,7 +6,6 @@ export * from './Header/Header';
 export * from './Footer/Footer';
 export * from './MovieContainer/Genres/GenresList';
 export * from './MovieContainer/Genres/Genre';
-export * from './MovieContainer/GenreBadge/GenreBadge';
 export * from './MovieContainer/MovieInfo/MovieInfo';
 export * from './MovieContainer/MovieInfoCard/MovieInfoCard';
 export * from './MovieContainer/MoviesList/MoviesList';

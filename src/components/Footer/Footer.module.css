@@ -1,6 +1,6 @@
-.header {
-    .css-11b3ww9-MuiPaper-root-MuiAppBar-root {
-        background: darkslategray;
+.footer {
+    h2{
+        margin-block-end: 0;
     }
 
     li {

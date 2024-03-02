@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 
-import {MoviesList, PaginationCustom} from "../../components";
+import {MoviesList} from "../../components";
 import {IMovies} from "../../interfaces";
 import {moviesService} from "../../services";
 import {useSearchParams} from "react-router-dom";
@@ -38,9 +38,7 @@ const MoviesListPage = () => {
 
             {movies &&
                 <div>
-                    <PaginationCustom/>
                     <MoviesList movies={movies}/>
-                    <PaginationCustom/>
                 </div>
             }
         </div>

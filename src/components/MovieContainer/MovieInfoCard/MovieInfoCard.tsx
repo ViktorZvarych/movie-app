@@ -30,11 +30,9 @@ const MovieInfoCard: FC<IProps> = ({movie}) => {
 
     return (
         <article className={css.article}>
-
             <div className={css.card}>
-
                 <div className={css.titleContainer}>
-                    <Badge badgeContent={genres.map(({name}) => name + '  ')} color="success" sx={{ "& .MuiBadge-badge": { fontSize: 12, height: 25, minHeight: 15 } }}>
+                    <Badge badgeContent={genres.map(({name}) => name + '  ')} color="error" sx={{ "& .MuiBadge-badge": { fontSize: 12, height: 25, minHeight: 15 } }}>
                         <h3 className={css.cardTitle}>{title}</h3>
                     </Badge>
                 </div>
@@ -52,8 +50,6 @@ const MovieInfoCard: FC<IProps> = ({movie}) => {
                 <p>Popularity: {popularity}</p>
                 <p>{overview}</p>
             </div>
-
-
         </article>
     );
 };

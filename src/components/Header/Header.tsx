@@ -98,20 +98,18 @@ const Header = () => {
                 <Slide appear={false} direction="down" in={!trigger}>
                     <AppBar color='error' component="nav">
                         <Toolbar>
-                            <IconButton
-                                color="inherit"
-                                aria-label="open drawer"
-                                edge="start"
-                                onClick={handleDrawerToggle}
-                            >
-                                <MenuIcon/>
-                            </IconButton>
-                            <Typography
-                                variant="h6"
-                                component="div"
-                                sx={{
-                                    flexGrow: 1,
-                                }}
+                            {auth && (
+                                <IconButton
+                                    color="inherit"
+                                    aria-label="open drawer"
+                                    edge="start"
+                                    onClick={handleDrawerToggle}
+                                >
+                                    <MenuIcon/>
+                                </IconButton>
+                            )}
+
+                            <Typography variant="h6" component="div" sx={{flexGrow: 1}}
                             >
                                 <NavLink to={'/'}>
                                     <Button sx={{color: 'snow'}}>
@@ -203,41 +201,51 @@ const Header = () => {
                     </AppBar>
                 </Slide>
 
-                <nav>
-                    <Drawer
-                        variant="temporary"
-                        open={mobileOpen}
-                        onClose={handleDrawerToggle}
-                        ModalProps={{
-                            keepMounted: true,
-                        }}
-                        sx={{
-                            '& .MuiDrawer-paper': {boxSizing: 'border-box', width: drawerWidth},
-                        }}
-                    >
-                        <Box onClick={handleDrawerToggle} sx={{textAlign: 'center'}}>
-                            <Typography variant="h6" sx={{my: 2}}>
-                                MovieDB
-                            </Typography>
-                            <Divider/>
-                            <List>
-                                <ListItem disablePadding>
-                                    <ListItemButton sx={{textAlign: 'center', display: 'block'}}>
-                                        <GenresList/>
-                                    </ListItemButton>
-                                </ListItem>
+                {auth && (
+                    <nav>
+                        <Drawer
+                            variant="temporary"
+                            open={mobileOpen}
+                            onClose={handleDrawerToggle}
+                            ModalProps={{keepMounted: true}}
+                            sx={{'& .MuiDrawer-paper': {
+                                boxSizing: 'border-box',
+                                    width: drawerWidth},
+                            }}
+                        >
+                            <Box sx={{textAlign: 'center'}}>
+                                <Typography variant="h6" sx={{my: 2}}>
+                                    <NavLink to={'/'}>
+                                        <div style={{backgroundColor: 'red'}}>
+                                            <Button onClick={handleDrawerToggle} sx={{color: 'snow'}}>
+                                                MovieDB
+                                            </Button>
+                                        </div>
+                                    </NavLink>
+                                </Typography>
 
                                 <Divider/>
 
-                                <ListItem disablePadding>
-                                    <ListItemButton sx={{textAlign: 'center', display: 'block'}}>
-                                        <SortInput/>
-                                    </ListItemButton>
-                                </ListItem>
-                            </List>
-                        </Box>
-                    </Drawer>
-                </nav>
+                                <List>
+                                    <ListItem disablePadding>
+                                        <ListItemButton sx={{textAlign: 'center', display: 'block'}}>
+                                            <GenresList/>
+                                        </ListItemButton>
+                                    </ListItem>
+
+                                    <Divider/>
+
+                                    <ListItem disablePadding>
+                                        <ListItemButton sx={{textAlign: 'center', display: 'block'}}>
+                                            <SortInput/>
+                                        </ListItemButton>
+                                    </ListItem>
+                                </List>
+                            </Box>
+                        </Drawer>
+                    </nav>
+                )}
+
 
             </Box>
         </header>

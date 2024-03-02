@@ -14,12 +14,15 @@ const Footer = () => {
         setAuth(!!localToken);
     }, [localToken]);
 
+    useEffect(() => {
+        console.log(auth)
+    }, []);
+
     return (
         <footer className={css.footer}>
             <h2>Footer</h2>
-            {auth &&
-            <p>You`re logged in</p>
-            }
+
+            {/*{auth && <p>You`re logged in</p>}*/}
         </footer>
     );
 }

@@ -6,21 +6,13 @@ import {Genre} from "./Genre";
 import {useLocation, useSearchParams} from "react-router-dom";
 
 
-import Box from '@mui/material/Box';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
-const MenuProps = {
-    PaperProps: {
-        style: {
-            maxHeight: 50 * 4.5 + 8,
-            width: 250,
-        },
-    },
-};
+const genresWidth = 200;
 
 const GenresList  = () => {
 
@@ -73,7 +65,7 @@ const GenresList  = () => {
 
     return (
             <div>
-                <FormControl sx={{m: 1, width: 300}}>
+                <FormControl sx={{m: 1, width: genresWidth}}>
                     <InputLabel id="demo-multiple-chip-label">Genres</InputLabel>
                     <Select
                         labelId="demo-multiple-chip-label"
@@ -82,14 +74,6 @@ const GenresList  = () => {
                         value={genresArr}
                         onChange={handleChange}
                         input={<OutlinedInput id="select-multiple-chip" label="Chip"/>}
-                        renderValue={(selected) => (
-                            <Box sx={{display: 'flex', flexWrap: 'wrap', gap: 0.5}}>
-                                {/*{selected.map((value) => (*/}
-                                {/*    <Chip key={value} />*/}
-                                {/*))}*/}
-                            </Box>
-                        )}
-                        MenuProps={MenuProps}
                     >
                         {genres && genres.genres.map((genre: IGenre) => (
                             <MenuItem

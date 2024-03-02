@@ -24,7 +24,7 @@ const SortInput = () => {
                 <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
-                    value={'popularity.desc'}
+                    value={''}
                     label="Sort"
                     onChange={handleChange}
                 >
