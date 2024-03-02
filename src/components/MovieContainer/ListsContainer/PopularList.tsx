@@ -29,13 +29,13 @@ const PopularList = () => {
 
     return (
         <section className={css.moviesList}>
-            <h2>Popular movies</h2>
+            <h2>Top 5 most popular movies</h2>
             {
                 movies && typeof movies !== 'undefined'
                 &&
                 <div>
                     <ul>
-                        {movies.results.map((movie: IMovie) =>
+                        {movies.results.slice(0, 5).map((movie: IMovie) =>
                             <li onClick={() => {
                                 navigate(`info/${movie.id}`);
                                 scrollTopHandler()
