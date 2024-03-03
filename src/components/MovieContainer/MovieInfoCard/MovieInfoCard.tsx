@@ -21,7 +21,6 @@ const MovieInfoCard: FC<IProps> = ({movie}) => {
         genres,
         vote_count,
         release_date,
-        video,
         overview,
         vote_average,
         poster_path,
