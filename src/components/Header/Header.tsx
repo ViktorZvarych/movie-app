@@ -114,7 +114,7 @@ const Header = () => {
 
                             <Typography variant="h6" component="div" sx={{flexGrow: 1}}
                             >
-                                <NavLink to={'/movies'}>
+                                <NavLink to={'movies'}>
                                     <Button sx={{color: 'snow'}}>
                                         MovieDB
                                     </Button>

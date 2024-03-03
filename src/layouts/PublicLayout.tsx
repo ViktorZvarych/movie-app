@@ -7,7 +7,7 @@ const PublicLayout = () => {
     const token = authService.getToken();
 
     if (token) {
-        return <Navigate to={'/movies'}/>
+        return <Navigate to={'movies'}/>
     }
 
     return (

@@ -1,7 +1,7 @@
 {
   "name": "okten-react-ts-project",
   "version": "0.1.0",
-  "homepage": "https://viktorzvarych.github.io/movie-app/",
+  "homepage": "https://viktorzvarych.github.io/movie-app",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.3",

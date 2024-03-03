@@ -1,3 +1,9 @@
+# React project with TypeScript
+## :zap: Live at https://viktorzvarych.github.io/movie-app/
+##  :wrench: Developed by Viktor Zvarych while studying at Okten school on March 2024
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

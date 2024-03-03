@@ -14,7 +14,7 @@ const AuthProvider: FC<IProps> = ({children}) => {
         return <>{children}</>
     }
 
-    return <Navigate to={'/login'}/>
+    return <Navigate to={'login'}/>
 }
 
 export {AuthProvider}
