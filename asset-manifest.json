@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/ViktorZvarych/movie-app/static/css/main.aabb72ca.css",
+    "main.js": "/ViktorZvarych/movie-app/static/js/main.a95b5fbc.js",
+    "static/media/bg-image.webp": "/ViktorZvarych/movie-app/static/media/bg-image.47774696921732cc0378.webp",
+    "index.html": "/ViktorZvarych/movie-app/index.html",
+    "main.aabb72ca.css.map": "/ViktorZvarych/movie-app/static/css/main.aabb72ca.css.map",
+    "main.a95b5fbc.js.map": "/ViktorZvarych/movie-app/static/js/main.a95b5fbc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aabb72ca.css",
+    "static/js/main.a95b5fbc.js"
+  ]
+}
