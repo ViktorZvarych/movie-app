@@ -1,4 +1,5 @@
 .moviesList {
+    padding-top: 1rem;
     ul {
         display: flex;
         justify-content: space-around;
