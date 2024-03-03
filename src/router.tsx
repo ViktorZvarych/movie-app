@@ -11,7 +11,7 @@ import {
     SignInPage,
     SearchResultsPage
 } from "./pages";
-import {AuthProvider} from './hocs';
+import {AuthProvider, MoviesListsContextProvider} from './hocs';
 import {ThemeContextProvider} from "./hocs";
 import {LoginForm} from "./components";
 
@@ -44,9 +44,11 @@ const router = createBrowserRouter([
             {
                 element:
                     <ThemeContextProvider>
-                        <AuthProvider>
-                            <PrivateLayout/>
-                        </AuthProvider>
+                        <MoviesListsContextProvider>
+                            <AuthProvider>
+                                <PrivateLayout/>
+                            </AuthProvider>
+                        </MoviesListsContextProvider>
                     </ThemeContextProvider>,
                 children: [
                     {

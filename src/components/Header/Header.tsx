@@ -111,7 +111,7 @@ const Header = () => {
 
                             <Typography variant="h6" component="div" sx={{flexGrow: 1}}
                             >
-                                <NavLink to={'/'}>
+                                <NavLink to={'/movies'}>
                                     <Button sx={{color: 'snow'}}>
                                         MovieDB
                                     </Button>
@@ -215,7 +215,7 @@ const Header = () => {
                         >
                             <Box sx={{textAlign: 'center'}}>
                                 <Typography variant="h6" sx={{my: 2}}>
-                                    <NavLink to={'/'}>
+                                    <NavLink to={'/movies'}>
                                         <div style={{backgroundColor: 'red'}}>
                                             <Button onClick={handleDrawerToggle} sx={{color: 'snow'}}>
                                                 MovieDB

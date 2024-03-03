@@ -1,23 +1,28 @@
 import {createContext, FC, PropsWithChildren, useEffect, useState} from "react";
 
-import {IMovies} from "../interfaces";
+import {IMovie} from "../interfaces";
 import {moviesService} from "../services";
 
 interface IProps extends PropsWithChildren {
 }
 
-const MoviesListsContext = createContext<IMovies | null>(null);
+const MoviesListsContext =
+    createContext<{
+        topRatedMoviesList: IMovie[] | null;
+        popularMoviesList: IMovie[] | null;
+        upcomingMoviesList: IMovie[] | null;
+    } | null>(null);
 
 const MoviesListsContextProvider: FC<IProps> = ({children}) => {
-    const [topRatedMoviesList, setTopRatedMoviesList] = useState<IMovies | null>(null);
-    const [popularMoviesList, setPopularMoviesList] = useState<IMovies | null>(null);
-    const [upcomingMoviesList, setUpcomingMoviesList] = useState<IMovies | null>(null);
+    const [topRatedMoviesList, setTopRatedMoviesList] = useState<IMovie[] | null>(null);
+    const [popularMoviesList, setPopularMoviesList] = useState<IMovie[] | null>(null);
+    const [upcomingMoviesList, setUpcomingMoviesList] = useState<IMovie[] | null>(null);
 
     useEffect(() => {
         try {
             (async (): Promise<void> => {
                 const {data} = await moviesService.getTopRatedList();
-                setTopRatedMoviesList(data);
+                setTopRatedMoviesList(data.results.slice(0, 8));
             })()
         } catch (e) {
             console.log(e);
@@ -28,7 +33,7 @@ const MoviesListsContextProvider: FC<IProps> = ({children}) => {
         try {
             (async (): Promise<void> => {
                 const {data} = await moviesService.getPopularList();
-                setPopularMoviesList(data);
+                setPopularMoviesList(data.results.slice(0, 8));
             })()
         } catch (e) {
             console.log(e);
@@ -39,7 +44,7 @@ const MoviesListsContextProvider: FC<IProps> = ({children}) => {
         try {
             (async (): Promise<void> => {
                 const {data} = await moviesService.getUpcomingList();
-                setUpcomingMoviesList(data);
+                setUpcomingMoviesList(data.results.slice(0, 8));
             })()
         } catch (e) {
             console.log(e);
@@ -48,8 +53,8 @@ const MoviesListsContextProvider: FC<IProps> = ({children}) => {
 
 
     return (
-        <MoviesListsContext.Provider value={{topRatedMoviesList}}>
-                {children}
+        <MoviesListsContext.Provider value={{topRatedMoviesList, popularMoviesList, upcomingMoviesList}}>
+            {children}
         </MoviesListsContext.Provider>
     );
 };

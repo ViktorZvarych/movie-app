@@ -5,23 +5,13 @@ import {moviesService} from "../../../services";
 import css from "../MoviesList/MoviesList.module.css";
 import {MoviesListCard} from "../MoviesListCard/MoviesListCard";
 import {useNavigate} from "react-router-dom";
-import {useScrollToTop} from "../../../hooks";
+import {useMoviesListsContext, useScrollToTop} from "../../../hooks";
 
 const PopularList = () => {
     console.log('render PopularList');
 
-    const [movies, setMovies] = useState<IMovies | null>(null);
-
-    useEffect(() => {
-        try {
-            (async (): Promise<void> => {
-                const {data} = await moviesService.getPopularList();
-                setMovies(data);
-            })()
-        } catch (e) {
-            console.log(e);
-        }
-    }, [])
+    const moviesListsContext = useMoviesListsContext();
+    const popularMoviesList = moviesListsContext?.popularMoviesList;
 
     const navigate = useNavigate();
 
@@ -31,11 +21,11 @@ const PopularList = () => {
         <section className={css.moviesList}>
             <h2>Most popular movies</h2>
             {
-                movies && typeof movies !== 'undefined'
+                popularMoviesList
                 &&
                 <div>
                     <ul>
-                        {movies.results.slice(0, 8).map((movie: IMovie) =>
+                        {popularMoviesList.map((movie: IMovie) =>
                             <li onClick={() => {
                                 navigate(`../info/${movie.id}`);
                                 scrollTopHandler()

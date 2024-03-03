@@ -1,26 +1,14 @@
 import css from "../MoviesList/MoviesList.module.css";
-import {IMovie, IMovies} from "../../../interfaces";
+import {IMovie} from "../../../interfaces";
 import {MoviesListCard} from "../MoviesListCard/MoviesListCard";
-import {useEffect, useState} from "react";
-import {moviesService} from "../../../services";
 import {useNavigate} from "react-router-dom";
-import {useScrollToTop} from "../../../hooks";
+import {useMoviesListsContext, useScrollToTop} from "../../../hooks";
 
 const UpcomingList = () => {
     console.log('render UpcomingList');
 
-    const [movies, setMovies] = useState<IMovies | null>(null);
-
-    useEffect(() => {
-        try {
-            (async (): Promise<void> => {
-                const {data} = await moviesService.getUpcomingList();
-                setMovies(data);
-            })()
-        } catch (e) {
-            console.log(e);
-        }
-    }, [])
+    const moviesListsContext = useMoviesListsContext();
+    const upcomingMoviesList = moviesListsContext?.upcomingMoviesList;
 
     const navigate = useNavigate();
 
@@ -30,11 +18,11 @@ const UpcomingList = () => {
         <section className={css.moviesList}>
             <h2>Upcoming movies</h2>
             {
-                movies && typeof movies !== 'undefined'
+                upcomingMoviesList
                 &&
                 <div>
                     <ul>
-                        {movies.results.slice(0, 8).map((movie: IMovie) =>
+                        {upcomingMoviesList.map((movie: IMovie) =>
                             <li onClick={() => {
                                 navigate(`../info/${movie.id}`);
                                 scrollTopHandler()
