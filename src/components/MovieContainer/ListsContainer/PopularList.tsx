@@ -1,7 +1,4 @@
-import {useEffect, useState} from "react";
-
-import {IMovie, IMovies} from "../../../interfaces";
-import {moviesService} from "../../../services";
+import {IMovie} from "../../../interfaces";
 import css from "../MoviesList/MoviesList.module.css";
 import {MoviesListCard} from "../MoviesListCard/MoviesListCard";
 import {useNavigate} from "react-router-dom";

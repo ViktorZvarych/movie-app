@@ -1,13 +1,13 @@
 import {FC} from "react";
 
 import css from './MoviesList.module.css';
-import {IMovie, IMovies} from "../../../interfaces";
+import {IMovie} from "../../../interfaces";
 import {MoviesListCard} from "../MoviesListCard/MoviesListCard";
 import {PaginationCustom} from "../PaginationCustom/PaginationCustom";
 import {useNavigate} from "react-router-dom";
 
 interface IProps {
-    movies: IMovies
+    movies: IMovie[]
 }
 
 const MoviesList: FC<IProps> = ({movies}) => {
@@ -23,13 +23,14 @@ const MoviesList: FC<IProps> = ({movies}) => {
                 &&
                 <div>
                     <ul>
-                        {movies.results.map((movie: IMovie) =>
+                        {movies.map((movie: IMovie) =>
                             <li onClick={() => navigate(`../info/${movie.id}`)}
                                 key={movie.id}>
                                 <MoviesListCard movie={movie}/>
                             </li>)}
                     </ul>
-                    <PaginationCustom/>
+
+                    {movies[20] && <PaginationCustom/>}
                 </div>
             }
             <hr/>

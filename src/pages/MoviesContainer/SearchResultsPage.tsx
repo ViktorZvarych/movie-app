@@ -1,12 +1,12 @@
-import {MoviesList, PaginationCustom} from "../../components";
+import {MoviesList} from "../../components";
 import {useSearchParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {IMovies} from "../../interfaces";
+import {IMovie} from "../../interfaces";
 import {moviesService} from "../../services";
 
 const SearchResultsPage = () => {
     console.log('render SearchResultsPage');
-    const [movies, setMovies] = useState<IMovies | null>(null);
+    const [movies, setMovies] = useState<IMovie[] | null>(null);
 
     const [urlSearchParams, ] = useSearchParams();
 
@@ -22,7 +22,7 @@ const SearchResultsPage = () => {
         try {
             (async (): Promise<void> => {
                 const {data} = await moviesService.searchMovie(urlParams.join('&'));
-                setMovies(data);
+                setMovies(data.results);
             })()
         } catch (e) {
             console.log(e);
@@ -35,8 +35,6 @@ const SearchResultsPage = () => {
             <h2>MoviesListPage</h2>
 
             {movies && <MoviesList movies={movies}/>}
-
-            <PaginationCustom/>
         </div>
     );
 };

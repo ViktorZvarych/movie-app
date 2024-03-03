@@ -5,7 +5,10 @@ const Footer = () => {
 
     return (
         <footer className={css.footer}>
-            <h2>Footer</h2>
+            <p><b>© Developed by Viktor Zvarych</b></p>
+            <p><b>Visit my <span> </span>
+                <a href="https://github.com/ViktorZvarych/" target="_blank" rel="noopener noreferrer">GitHub page</a>
+            </b></p>
         </footer>
     );
 }

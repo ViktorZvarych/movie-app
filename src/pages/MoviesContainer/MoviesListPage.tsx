@@ -1,17 +1,21 @@
 import {useEffect, useState} from "react";
 
 import {MoviesList} from "../../components";
-import {IMovies} from "../../interfaces";
+import {IMovie} from "../../interfaces";
 import {moviesService} from "../../services";
 import {useSearchParams} from "react-router-dom";
+import {useMoviesListsContext} from "../../hooks";
 
 const MoviesListPage = () => {
     console.log('render MoviesListPage');
 
-    const [movies, setMovies] = useState<IMovies | null>(null);
+    const moviesListsContext = useMoviesListsContext();
+    const firstPageMoviesList = moviesListsContext?.firstPageMoviesList;
+
+    const [movies, setMovies] = useState<IMovie[] | null>(null);
 
     const [urlSearchParams, ] = useSearchParams();
-
+    
     useEffect(() => {
         const urlParams = [];
 
@@ -20,16 +24,20 @@ const MoviesListPage = () => {
         }
 
         console.log(urlParams[0])
-
-        try {
-            (async (): Promise<void> => {
-                const {data} = await moviesService.getMovies(urlParams.join('&'));
-                setMovies(data);
-            })()
-        } catch (e) {
-            console.log(e);
+        
+        if (urlParams[0]) {
+            try {
+                (async (): Promise<void> => {
+                    const {data} = await moviesService.getMovies(urlParams.join('&'));
+                    setMovies(data.results);
+                })()
+            } catch (e) {
+                console.log(e);
+            }
+        } else {
+            firstPageMoviesList && setMovies(firstPageMoviesList);
         }
-    }, [urlSearchParams])
+    }, [firstPageMoviesList, urlSearchParams])
 
 
     return (

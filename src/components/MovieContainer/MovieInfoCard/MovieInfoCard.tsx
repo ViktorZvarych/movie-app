@@ -66,7 +66,6 @@ const MovieInfoCard: FC<IProps> = ({movie}) => {
 
                     <p>Votes: {vote_count}</p>
                     <p>Release date: {release_date.toString()}</p>
-                    <p>video: {video.toString()}</p>
                     <p>Budget: $ {budget}</p>
                     <p>Popularity: {popularity}</p>
                     <p>{overview}</p>
