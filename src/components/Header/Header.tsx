@@ -1,3 +1,6 @@
+// I know that this component must be devided into smaller
+// I`m going to do it in a good time))
+
 import {ChangeEvent, MouseEvent, useEffect, useState} from "react";
 import {NavLink, useNavigate} from "react-router-dom";
 
