@@ -1,6 +1,8 @@
 import {FC} from "react";
+
 import {IVideosResult} from "../../../interfaces";
 import css from "./Video.module.css";
+import {formatDateStringService} from "../../../services";
 
 interface IProps {
     video: IVideosResult
@@ -27,7 +29,7 @@ const Video: FC<IProps> = ({video}) => {
                     allowFullScreen>
                 </iframe>
             }
-            <p>Published: {published_at}</p>
+            <p>Published on {formatDateStringService(published_at)}</p>
         </div>
     );
 };
