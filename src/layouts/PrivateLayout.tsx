@@ -5,7 +5,7 @@ const PrivateLayout = () => {
 
     return (
         <div>
-            <h2>PrivateLayout</h2>
+            {/*<h2>PrivateLayout</h2>*/}
             <Outlet/>
         </div>
     );

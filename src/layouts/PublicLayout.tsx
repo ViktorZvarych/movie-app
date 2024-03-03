@@ -12,7 +12,7 @@ const PublicLayout = () => {
 
     return (
         <div>
-            <h2>PublicLayout</h2>
+            {/*<h2>PublicLayout</h2>*/}
             <Outlet/>
         </div>
     );

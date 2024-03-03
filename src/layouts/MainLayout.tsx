@@ -12,17 +12,20 @@ const MainLayout = () => {
     const theme = themeContext?.theme;
 
     return (
-        <div
-            className={theme === 'dark' ? css.dark : css.light}
-        >
-            <Header/>
+        <div className={css.main}>
+            <div
+                className={theme === 'dark' ? css.dark : css.light}
+            >
+                <Header/>
 
-            <Outlet/>
+                <Outlet/>
 
-            <Footer/>
+                <Footer/>
 
-            <BackToTopButton/>
+                <BackToTopButton/>
+            </div>
         </div>
+
     );
 };
 

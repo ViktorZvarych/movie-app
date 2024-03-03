@@ -1,7 +1,9 @@
+import {useNavigate} from "react-router-dom";
+
 import css from './LoginForm.module.css';
+import bgImage from '../../../bg-image.webp';
 import {authService} from "../../../services";
 import {token} from "../../../constants";
-import {useNavigate} from "react-router-dom";
 
 const LoginForm = () => {
     console.log('render LoginForm');
@@ -14,11 +16,18 @@ const LoginForm = () => {
     }
 
     return (
-        <div className={css.loginForm}>
-            <h2>LoginForm</h2>
-            <p>This page is under construction</p>
+        <div className={css.loginForm} style={{backgroundImage: `url(${bgImage})`}} >
+            {/*<h2>LoginForm</h2>*/}
 
-            <button onClick={clickHandler}>Sign in</button>
+                <div className={css.box}>
+                    <div>
+                        <i className="icon fas fa-user-shield"></i>
+                        <h3 className={css.title}>Are You Ready?</h3>
+                    </div>
+                    <button onClick={clickHandler}>Login</button>
+                </div>
+
+
         </div>
     );
 };

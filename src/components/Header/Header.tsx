@@ -18,7 +18,7 @@ import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import MenuItem from '@mui/material/MenuItem';
+// import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import Slide from '@mui/material/Slide';
 import {useScrollTrigger} from "@mui/material";
@@ -120,12 +120,6 @@ const Header = () => {
 
                             {auth && <SearchInput/>}
 
-                            <Box>
-                                <Button sx={{color: 'snow'}}>
-                                    About
-                                </Button>
-                            </Box>
-
                             {!auth && (
                                 <FormGroup>
                                     <FormControlLabel
@@ -170,7 +164,7 @@ const Header = () => {
                                         open={Boolean(anchorEl)}
                                         onClose={handleClose}
                                     >
-                                        <MenuItem onClick={handleClose}>Profile</MenuItem>
+                                        {/*<MenuItem onClick={handleClose}>Profile</MenuItem>*/}
 
                                         <FormGroup onClick={handleClose}>
                                             <FormControlLabel

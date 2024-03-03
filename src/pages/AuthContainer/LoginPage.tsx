@@ -5,7 +5,7 @@ const LoginPage = () => {
 
     return (
         <div>
-            <h2>LoginPage</h2>
+            {/*<h2>LoginPage</h2>*/}
             <Outlet/>
         </div>
     );
