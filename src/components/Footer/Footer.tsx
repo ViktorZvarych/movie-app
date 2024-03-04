@@ -1,7 +1,4 @@
 import css from './Footer.module.css'
-import {useNavigate} from "react-router-dom";
-import {authService} from "../../services";
-import {useEffect} from "react";
 
 const Footer = () => {
     console.log('render Footer');

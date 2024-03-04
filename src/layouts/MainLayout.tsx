@@ -1,4 +1,4 @@
-import {Outlet, useNavigate} from "react-router-dom";
+import {Outlet} from "react-router-dom";
 
 import {BackToTopButton, Header, Footer} from "../components";
 import css from './MainLayout.module.css'
