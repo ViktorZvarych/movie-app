@@ -17,7 +17,7 @@ import {LoginForm} from "./components";
 
 const router = createBrowserRouter([
     {
-        path: '',
+        path: '/',
         element: <ThemeContextProvider><MainLayout/></ThemeContextProvider>,
         errorElement: <ErrorPage/>,
         children: [
