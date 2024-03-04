@@ -22,7 +22,7 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage/>,
         children: [
             {
-                index: true, element: <Navigate to={'login'}/>
+                index: true, element: <LoginForm/>
             },
             {
                 element: <PublicLayout/>, children: [

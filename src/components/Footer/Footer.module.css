@@ -11,6 +11,7 @@
     }
 
     p{
+        transition: 0.3s;
         &:hover{
             scale: 110%;
         }
