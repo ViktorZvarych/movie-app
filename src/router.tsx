@@ -72,6 +72,9 @@ const router = createBrowserRouter([
             }
         ]
     }
-])
+],
+    {
+        basename: "/movie-app",
+    })
 
 export {router}
